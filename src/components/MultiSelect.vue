@@ -43,23 +43,25 @@ const multiSelectOptions = ref([]);
 
 console.log({ grouped: props.grouped, groupField: props.groupField });
 
+const createOptions = (o) => {
+  const option = {};
+
+  option.name = o[props.nameKey];
+  option.value = o[props.valueKey];
+
+  return option;
+};
+
 if (!props.grouped) {
-  multiSelectOptions.value = props?.options?.map((o) => {
-    const option = {};
-
-    option.name = o[props.nameKey];
-    option.value = o[props.valueKey];
-
-    return option;
-  });
+  multiSelectOptions.value = props?.options?.map(createOptions);
 } else {
   const groups = [...new Set(props?.options?.map((o) => o[props?.groupField]))];
   multiSelectOptions.value = groups.map((g) => {
     const option = {};
     option.groupLabel = g;
-    option.groupValues = props?.options?.filter(
-      (o) => o[props?.groupField] === g
-    );
+    option.groupValues = props?.options
+      ?.filter((o) => o[props?.groupField] === g)
+      .map(createOptions);
     return option;
   });
 }
