@@ -25,19 +25,21 @@ const items = [
       { name: 'E', id: 5 },
     ],
   },
-   {
+  {
     label: 'Kelly\'s special Field',
     type: 'multiSelect',
     key: 'kelly',
     nameKey: 'name',
     valueKey: 'id',
     options: [
-      { name: 'Kelly', id: 1 },
-      { name: 'Arthur', id: 2 },
-      { name: 'Brayden', id: 3 },
-      { name: 'D', id: 4 },
-      { name: 'E', id: 5 },
+      { name: 'Kelly', id: 1, team: 'Team A' },
+      { name: 'Arthur', id: 2, team: 'Team A' },
+      { name: 'Brayden', id: 3, team: 'Team V' },
+      { name: 'D', id: 4, team: 'Team V' },
+      { name: 'E', id: 5, team: 'Team A'},
     ],
+    grouped: true,
+    groupField: 'team'
   },
   {
     label: 'Single Select',

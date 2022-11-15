@@ -12,6 +12,8 @@
       :name-key="item.nameKey"
       :value-key="item.valueKey"
       :options="item.options"
+      :grouped="!!item.grouped"
+      :group-field="item.groupField"
     ></MultiSelect>
     <SingleSelect
       v-if="item.type === 'singleSelect'"
