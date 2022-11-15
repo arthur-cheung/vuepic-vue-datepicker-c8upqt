@@ -4,7 +4,7 @@
     @update:model-value="updateSelected"
     :options="singleSelectOptions"
     label="name"
-    track-by="name"
+    track-by="value"
   >
   </VueMultiselect>
 </template>
@@ -14,14 +14,23 @@ import 'vue-multiselect/dist/vue-multiselect.css';
 import VueMultiselect from 'vue-multiselect';
 const emit = defineEmits(['update:modelValue']);
 let selectedMultiSelect;
-const singleSelectOptions = [
-  { name: 'one', value: 1 },
-  { name: 'two', value: 2 },
-  { name: 'three', value: 3 },
-  { name: 'four', value: 4 },
-];
+const singleSelectOptions = ref([]);
+
+singleSelectOptions.value = props?.options?.map((o) => {
+  const option = {};
+  option.name = o[props.nameKey];
+  option.value = o[props.valueKey];
+  return option;
+});
+console.log({ singleSelectOptions: singleSelectOptions.value });
 const props = defineProps({
   modelValue: String,
+  nameKey: String,
+  valueKey: String,
+  options: {
+    type: Array,
+    required: true,
+  },
 });
 let selected = ref();
 const updateSelected = (newValue) => {

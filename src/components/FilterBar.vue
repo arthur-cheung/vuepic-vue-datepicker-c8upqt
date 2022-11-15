@@ -9,10 +9,16 @@
     <MultiSelect
       v-if="item.type === 'multiSelect'"
       v-model="selected[item.key]"
+      :name-key="item.nameKey"
+      :value-key="item.valueKey"
+      :options="item.options"
     ></MultiSelect>
     <SingleSelect
       v-if="item.type === 'singleSelect'"
+      :name-key="item.nameKey"
+      :value-key="item.valueKey"
       v-model="selected[item.key]"
+      :options="item.options"
     ></SingleSelect>
   </div>
 </template>
@@ -36,7 +42,7 @@ const props = defineProps({
           obj.hasOwnProperty('key')
       );
       if (!isValidObj) {
-        console.warn('The object should have username and email');
+        console.warn('The object requires a type, label and key');
         return false;
       }
       return true;

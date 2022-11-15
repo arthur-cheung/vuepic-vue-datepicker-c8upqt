@@ -15,11 +15,43 @@ const items = [
     label: 'Multi Select',
     type: 'multiSelect',
     key: 'multiSelect',
+    nameKey: 'name',
+    valueKey: 'id',
+    options: [
+      { name: 'A', id: 1 },
+      { name: 'B', id: 2 },
+      { name: 'C', id: 3 },
+      { name: 'D', id: 4 },
+      { name: 'E', id: 5 },
+    ],
+  },
+   {
+    label: 'Kelly\'s special Field',
+    type: 'multiSelect',
+    key: 'kelly',
+    nameKey: 'name',
+    valueKey: 'id',
+    options: [
+      { name: 'Kelly', id: 1 },
+      { name: 'Arthur', id: 2 },
+      { name: 'Brayden', id: 3 },
+      { name: 'D', id: 4 },
+      { name: 'E', id: 5 },
+    ],
   },
   {
     label: 'Single Select',
     type: 'singleSelect',
     key: 'singleSelect',
+    nameKey: 'userName',
+    valueKey: 'id',
+    options: [
+      { userName: 'user A', id: 'a' },
+      { userName: 'user B', id: 'b' },
+      { userName: 'user C', id: 'c' },
+      { userName: 'user D', id: 'd' },
+      { userName: 'user E', id: 'e' },
+    ],
   },
 ];
 </script>
